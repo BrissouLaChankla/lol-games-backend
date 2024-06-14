@@ -15,7 +15,7 @@ connectDB();
 
 const io = require('socket.io')(http, {
     cors: {
-        origin: "http://localhost:3000"
+        origin: process.env.URL_FRONT
     }
 });
 
@@ -52,7 +52,7 @@ io.on('connection', (socket) => {
             const nbOfGames = 3;
 
             try {
-                const response = await fetch(`http://localhost:4000/getRandomGames/${nbOfGames}`);
+                const response = await fetch(`${process.env.URL_BACK}/getRandomGames/${nbOfGames}`);
                 const data = await response.json();
 
                 for (let indexOfQuestion = 0; indexOfQuestion < nbOfGames; indexOfQuestion++) {
