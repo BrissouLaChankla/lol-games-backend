@@ -117,3 +117,7 @@ app.get('/getRandomGames/:nbOfGames', async (req, res) => {
 http.listen(PORT, () => {
     console.log(`Server listening on ${PORT}`);
 });
+
+
+// Export the Express API
+module.exports = app;
